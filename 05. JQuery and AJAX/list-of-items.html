@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List of items</title>
+</head>
+<body>
+<!--It's better for the form to be on top so it doesn't get moved by appended list items.-->
+<form>
+	<input type="text" id="newItemText">
+	<input type="button" onclick="addItem()" value="Add">
+</form>
+
+<ul id="items">
+	<li>First</li>
+	<li>Second</li>
+</ul>
+
+
+
+<script>
+	function addItem() {
+		let text = document.getElementById('newItemText').value;
+		let li = document.createElement('li');
+		li.innerText = text;
+
+		console.log(li);
+
+		document.getElementById('items').appendChild(li);
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+body {
+	font-family: sans-serif;
+	font-size: 1.3em;
+}
+
+header, header a, footer {
+	background: #ddd;
+	padding: 5px 10px;
+	border-radius: 30px;
+	text-align: center;
+}
+
+header a {
+	color: #ff5500;
+	text-decoration: none;
+	transition: all 0.2s ease;
+}
+
+header a:hover {
+	color: #fff;
+	background: #aaa;
+}
+
+#loadingBox, #infoBox, #errorBox {
+	color: white;
+	display: none;
+	background: #aaa;
+	padding: 5px 10px;
+	border-radius: 3px;
+	width: 80%;
+	height: 1em;
+	margin: 10px auto;
+	text-align: center;
+}
+
+#loadingBox {
+	background: #7cb3e9;
+}
+
+#infoBox {
+	background: #393;
+}
+
+#errorBox {
+	background: #f50;
+}
+
+footer {
+	font-size: 0.8em;
+	background: #ddd;
+	margin: 10px 0;
+}
+
+main > section {
+	display: none;
+}
+
+table th, table td {
+	padding: 5px 10px;
+}
+
+table th {
+	background: #aaa;
+}
+
+table td {
+	background: #ddd;
+}
+
+#loadingBox {
+	height: 1em;
+}
+
+.spinner {
+	width: 1em;
+	animation: spin 0.7s infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.bookComments td {
+	background: #eee;
+}
+
+.commentAuthor {
+	display: block;
+	font-size: 0.7em;
+	font-style: italic;
+}
+
+.commentAuthor:before {
+	content: '-- ';
+}
+
+.commentContent {
+	font-size: 0.85em;
+}
+
+.addCommentButton {
+	display: inline-block;
+	font-size: 0.9em;
+	border: 2px solid #aaa;
+	margin-left: 3.4em;
+	margin-bottom: 0.1em;
+	padding: 4px;
+	background: #fff;
+	border-radius: 2em;
+	text-decoration: none;
+	color: #333;
+
+	transition: all 0.15s ease;
+}
+
+.addCommentButton:hover {
+	background: #ddd;
+	color: #222;
+}
+
+.postCommentForm {
+	font-size: 0.9em;
+	background: #fff;
+	width: 600px;
+	text-align: center;
+	padding: 5px;
+	border-radius: 30px;
+	margin-top: 5px;
+}
+
+#commentAuthor {
+	margin: 0 10px;
+}
+
+#commentSubmitButton {
+	margin-left: 10px;
+}
+
+#info {
+	position: absolute;
+	right: 0;
+	left: 0;
+	margin: 0 auto;
+	width: 45em;
+	height: 1em;
+}

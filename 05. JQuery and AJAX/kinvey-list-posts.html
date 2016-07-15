@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>List Posts</title>
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+<input type="button" id="loadPostsButton" value="Load posts from Kinvey">
+
+<ul id="posts"></ul>
+
+<script>
+	getPostsFromKinvey();
+
+	function showPosts(data) {
+		let posts = $('#posts');
+
+		posts.empty();
+
+		for (let post of data) {
+			let postFormat = `${post.title} -> ${post.body}`;
+			posts.append($('<li>').text(postFormat));
+		}
+	}
+
+	function showError(data) {
+		let errorDescription = 'Error: ' + data.responseJSON.description;
+
+		$('#posts').append('<p>').text(errorDescription).css('color', 'red');
+	}
+
+	function getPostsFromKinvey() {
+		let username = 'guest';
+		let password = 'guest';
+
+		$.ajax({
+			method: 'GET',
+			url: 'https://baas.kinvey.com/appdata/kid_Hy-drklL/posts',
+			headers: {'Authorization': "Basic " + btoa(`${username}:${password}`)},
+			success: function (data) {
+				showPosts(data);
+			},
+			error: function (data) {
+				showError(data);
+			}
+		});
+	}
+	$('#loadPostsButton').click(function () {
+		getPostsFromKinvey();
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>List of items</title>
+		<link rel="stylesheet" href="list-of-items.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<h1>List of items</h1>
+		<!--It's better for the form to be on top so it doesn't get moved by appended list items.-->
+		<input type="text" id="newItemText">
+		<input type="button" onclick="addItemFromTextbox()" value="Add">
+
+		<div>
+			<ul id="items">
+			</ul>
+		</div>
+
+		<script src="list-of-items.js"></script>
+	</body>
+</html>
+

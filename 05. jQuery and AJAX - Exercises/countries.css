@@ -1,0 +1,12 @@
+td, th {
+	background: #DDD;
+	padding: 5px 10px;
+}
+
+td a:not(:last-child) {
+	margin-right: 7px;
+}
+
+input {
+	display: inline-block;
+}

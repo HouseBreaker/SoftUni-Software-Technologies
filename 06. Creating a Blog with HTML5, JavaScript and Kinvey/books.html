@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Book Library</title>
+		<link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="styles/books.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="scripts/books.js"></script>
+	</head>
+	<body>
+		<header>
+			<a href="#" id="linkHome">Home</a>
+			<a href="#" id="linkLogin">Login</a>
+			<a href="#" id="linkRegister">Register</a>
+			<a href="#" id="linkListBooks">List books</a>
+			<a href="#" id="linkCreateBook">Create Book</a>
+			<a href="#" id="linkLogout">Logout</a>
+		</header>
+
+		<main>
+			<div id="info">
+				<section id="loadingBox"><img src="images/spinner.png" class="spinner" alt="spinner"></section>
+				<section id="infoBox">Info</section>
+				<section id="errorBox">Error</section>
+			</div>
+
+			<section id="viewHome">
+				<h1>Welcome!</h1>
+				<div>Welcome to my book library.</div>
+			</section>
+
+			<section id="viewLogin">
+				<h1>Please login</h1>
+				<form id="formLogin">
+					<div>Username:</div>
+					<div><input type="text" id="loginUsername" required></div>
+
+					<div>Password:</div>
+					<div><input type="password" id="loginPassword" required></div>
+
+					<div><input type="submit" id="buttonLogin"></div>
+				</form>
+			</section>
+
+			<section id="viewRegister">
+				<h1>Please register</h1>
+				<form id="formRegister">
+					<div>Username:</div>
+					<div><input type="text" id="registerUsername"></div>
+
+					<div>Password:</div>
+					<div><input type="password" id="registerPassword" required></div>
+
+					<div><input type="submit" id="buttonRegister"></div>
+				</form>
+			</section>
+
+			<section id="viewListBooks">
+				<h1>Books listing</h1>
+
+				<div id="books">No books.</div>
+			</section>
+
+			<section id="viewCreateBook">
+				<h1>Create new book</h1>
+				<form id="formCreateBook">
+					<div>Title:</div>
+					<div><input type="text" id="bookTitle" required></div>
+
+					<div>Author:</div>
+					<div><input type="text" id="bookAuthor" required></div>
+
+					<div>Description</div>
+					<div><textarea id="bookDescription" cols="21" rows="10"></textarea></div>
+
+					<div><input type="submit" id="buttonCreateBook"></div>
+				</form>
+			</section>
+		</main>
+
+		<footer>&copy; Book Library 2016</footer>
+	</body>
+</html>

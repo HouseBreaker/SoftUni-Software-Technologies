@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Create Post</title>
+
+	<style>
+		input, textarea {
+			display: block;
+		}
+	</style>
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+</head>
+<body>
+
+<form>
+	<label for="postTitle">Post title:</label>
+	<input type="text" id="postTitle">
+
+	<label for="postBody">Post body:</label>
+	<textarea id="postBody" cols="30" rows="10"></textarea>
+	<input type="button" id="sendPostButton" value="Send post">
+</form>
+<script>
+	function showResponse(data) {
+		let id = data._id;
+		let title = data.title;
+		let body = data.body;
+
+		let responseHtml = $('<div>').text(`Created post with id: ${id}, title "${title}" and body: "${body}"`);
+		responseHtml.appendTo($('body'));
+	}
+
+	function showErrorResponse(data) {
+		let responseHtml = $('<div>').text(data.responseJSON.description);
+
+		responseHtml.appendTo($('body'));
+	}
+
+	function postToKinvey() {
+		let username = 'guest';
+		let password = 'guest';
+
+		let postData = {
+			title: $('#postTitle').val(),
+			body: $('#postBody').val()
+		};
+
+		$.ajax({
+			method: 'POST',
+			url: 'https://baas.kinvey.com/appdata/kid_Hy-drklL/posts',
+			headers: {'Authorization': "Basic " + btoa(`${username}:${password}`)},
+			data: postData,
+			success: function (data) {
+				showResponse(data);
+			},
+			error: function (data) {
+				showErrorResponse(data);
+			}
+		});
+	}
+	$('#sendPostButton').click(function () {
+		postToKinvey();
+	});
+</script>
+</body>
+</html>
