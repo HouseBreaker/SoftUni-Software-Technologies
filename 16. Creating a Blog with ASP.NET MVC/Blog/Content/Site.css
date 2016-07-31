@@ -24,5 +24,13 @@ textarea {
 }
 
 .post > .title {
-	background: #ddd;
+	background: #F0F5FF;
+	border: 0.08em solid #8AB3FF;
+	border-radius: 0.3em;
+	padding: 0.3em;
+}
+
+.post > .about {
+	margin: 1em 0;
+	border-bottom: 0.08em solid #8AB3FF;
 }

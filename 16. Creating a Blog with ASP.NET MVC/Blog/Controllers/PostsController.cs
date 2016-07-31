@@ -34,9 +34,10 @@ namespace Blog.Controllers
             }
             return View(post);
         }
-
-        // GET: Posts/Create
-        public ActionResult Create()
+		
+		// GET: Posts/Create
+		[Authorize]
+		public ActionResult Create()
         {
             return View();
         }
@@ -59,6 +60,7 @@ namespace Blog.Controllers
         }
 
         // GET: Posts/Edit/5
+		[Authorize(Roles="Administrators")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,7 +80,8 @@ namespace Blog.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Title,Body,Date")] Post post)
+		[Authorize(Roles = "Administrators")]
+		public ActionResult Edit([Bind(Include = "Id,Title,Body,Date")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -89,8 +92,9 @@ namespace Blog.Controllers
             return View(post);
         }
 
-        // GET: Posts/Delete/5
-        public ActionResult Delete(int? id)
+		// GET: Posts/Delete/5
+		[Authorize(Roles = "Administrators")]
+		public ActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -107,7 +111,8 @@ namespace Blog.Controllers
         // POST: Posts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+		[Authorize(Roles = "Administrators")]
+		public ActionResult DeleteConfirmed(int id)
         {
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);

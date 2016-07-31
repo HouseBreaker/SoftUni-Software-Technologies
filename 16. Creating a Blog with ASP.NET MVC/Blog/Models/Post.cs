@@ -11,7 +11,7 @@ namespace Blog.Models
 	{
 		public Post()
 		{
-			this.Date = DateTime.Now;
+			Date = DateTime.Now;
 		}
 
 		[Key]
